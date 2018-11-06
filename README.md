@@ -1,4 +1,48 @@
-﻿# CRUD_JSP 2.0
+> # https://github.com/manuelzambrana/crudv2.0
+> **Proyecto bifurcado**
+>
+> ## MYSQL
+> - Usuario: root
+> - Contraseña: (sin contraseña)
+> - Base de datos: **instituto**
+>
+> ## DESPLIEGUE EN UBUNTU 
+>
+> ### Instalación de software
+> ```console
+> sudo  apt  install  git  mysql-client  mysql-server  tomcat8  tomcat8-admin 
+> ``` 
+> ### Descarga de código fuente
+> ```console
+> git  clone  https://github.com/iesvelez-daw/JSP_CRUD_instituto.git  &&  cd  JSP_CRUD_instituto
+> ```
+>
+> ### Introducción de datos
+> ```console
+> sudo su  # (Introducidos nuestra contraseña, para obtener acceso como root)
+> 
+> # Cambiamos el plugin de autenticación de auth_socket a mysql_native_password. 
+> # Es necesario para que la aplicación conecte correctamente al servidor MySQL.
+> echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''" | mysql -u root
+>
+> echo "drop database if exists instituto; create database instituto" | mysql -u root
+> cat BBDD/profesor.sql BBDD/alumno.sql | mysql -u root -D instituto
+> ```
+> ### Despliegue en Tomcat 8
+> ```console
+> sudo su  # (Introducidos nuestra contraseña, para obtener acceso como root)
+> 
+> cp  mysql-connector-java-5.1.21.jar  /var/lib/tomcat8/lib
+> cp  -r  instituto/web  /var/lib/tomcat8/webapps/instituto
+> ```
+>
+> ### Ejecutar aplicación
+>
+> Abrimos en el navegador la URL http://localhost:8080/instituto
+>
+
+
+# CRUD_JSP 2.0
 
 Este ejercicio consistirá en un CRUD sobre los datos de un instituto, donde tendremos tablas como: Alumnos, Profesores, asiganturas,material etc...
 
