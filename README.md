@@ -35,11 +35,17 @@
 > cp  mysql-connector-java-5.1.21.jar  /var/lib/tomcat8/lib
 > cp  -r  instituto/web  /var/lib/tomcat8/webapps/instituto
 > ```
+> **NOTA:** Deberás reiniciar Tomcat para que los archivos de `/var/lib/tomcat8/lib` se carguen.
+>
+> ```bash
+> sudo  systemctl  restart  tomcat8
+> ```
 >
 > ### Ejecutar aplicación
 >
 > Abrimos en el navegador la URL http://localhost:8080/instituto
 >
+
 
 
 # CRUD_JSP 2.0
